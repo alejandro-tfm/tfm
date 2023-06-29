@@ -1,6 +1,6 @@
 # Adversary Emulation Platform
 
-The objective of this project is to develop, implement and deploy an adversary emulation platform that enables cybersecurity professionals to save time, money and energy through automated security assessments. This platform will serve as a tool for teaching the latest vulnerabilities and measuring the quality of automated vulnerability detection applications in the field of cyber security.
+The objective of this project is to develop, implement and deploy an adversary emulation platform that enables cybersecurity professionals to save time, money and energy through automated security assessments. This platform serves as a tool for teaching the latest vulnerabilities and measuring the quality of automated vulnerability detection applications in the field of cyber security.
 
 In order to enable any user to use this tool and acquire the proposed knowledge, an encapsulated environment has been chosen. The simplicity and ease of deployment of the platform is the key to enable anyone to develop in this environment.
 
