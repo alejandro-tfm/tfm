@@ -2,9 +2,9 @@
 
 The objective of this project is to develop, implement and deploy an adversary emulation platform that enables cybersecurity professionals to save time, money and energy through automated security assessments. This platform will serve as a tool for teaching the latest vulnerabilities and measuring the quality of automated vulnerability detection applications in the field of cyber security.
 
-In order to enable any user to use this tool and acquire the proposed knowledge, an encapsulated environment has been chosen. The simplicity and ease of deployment of the platform will be key to enable anyone to develop in this field.
+In order to enable any user to use this tool and acquire the proposed knowledge, an encapsulated environment has been chosen. The simplicity and ease of deployment of the platform is the key to enable anyone to develop in this environment.
 
-It will be based on open source and will allow the emulation of a wide range of cyber-attacks to simulate risk situations in controlled environments and to gain intelligence. The latter is closely related to cyber security in companies and administrations. It is necessary to keep abreast of the latest attacks by different organised groups of cybercriminals. Therefore, after testing and executing new attacks in this laboratory environment, they will be able to increase, enrich and modernise their defences.
+It is be based on open source and allows the emulation of a wide range of cyber-attacks to simulate risk situations in controlled environments and to gain intelligence. The latter is closely related to cyber security in companies and administrations. It is necessary to keep abreast of the latest attacks by different organised groups of cybercriminals. Therefore, after testing and executing new attacks in this laboratory environment, they will be able to increase, enrich and modernise their defences.
 
 In relation to the academic field, it will allow the training of future professionals in subjects related to advanced cyberthreats and malware analysis. This tool contains a large number of methods and procedures with multiple action capabilities. 
 
